@@ -67,7 +67,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                     DropdownButtonFormField<String>(
                       value: category,
                       hint: Text('카테고리 선택'),
-                      items: ['오운완 인증', '식단 인증']
+                      items: ['약 복용', '사진']
                           .map((label) => DropdownMenuItem(
                         child: Text(label),
                         value: label,
@@ -212,7 +212,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dieat 커뮤니티"),
+        title: Text("Yakson 커뮤니티"),
         actions: [
           IconButton(
             icon: Icon(Icons.add),
@@ -320,7 +320,7 @@ class PostWidget extends StatelessWidget {
     await FirebaseDynamicLinks.instance.buildShortLink(parameters);
     final Uri shortUrl = shortLink.shortUrl;
 
-    await Share.share('내 Dieat 게시물을 확인해보세요: $shortUrl');
+    await Share.share('내 게시물을 확인해보세요: $shortUrl');
   }
 
   void _showComments(BuildContext context) {
@@ -332,9 +332,9 @@ class PostWidget extends StatelessWidget {
 
   Color _getCategoryColor() {
     switch (post.category) {
-      case '#오운완 인증':
+      case '약 복용 인증':
         return Colors.green[100]!;
-      case '#식단 인증':
+      case '사진':
         return Colors.yellow[100]!;
       default:
         return Colors.white;
